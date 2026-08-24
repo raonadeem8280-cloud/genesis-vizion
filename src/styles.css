@@ -167,6 +167,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
 
