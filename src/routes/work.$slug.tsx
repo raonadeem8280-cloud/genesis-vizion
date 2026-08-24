@@ -39,7 +39,7 @@ function ProjectNotFound() {
     <div className="flex min-h-screen items-center justify-center px-5">
       <div className="text-center">
         <h1 className="display-xl text-6xl">Project not found</h1>
-        <Link to="/work" className="mt-8 inline-block border border-border px-6 py-3 font-cond uppercase tracking-[0.24em]">
+        <Link to="/work" className="mt-8 inline-block border border-border px-6 py-3 font-cond uppercase tracking-[0.2em]">
           Back to work
         </Link>
       </div>
@@ -75,7 +75,7 @@ function ProjectPage() {
       </section>
 
       {/* 2 — Overview */}
-      <section className="border-t border-border py-20 md:py-28">
+      <section className="border-t border-border section-pad">
         <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:grid-cols-[1.2fr_0.8fr] md:px-10">
           <Reveal>
             <p className="text-base leading-relaxed md:text-2xl">{project.overview}</p>
@@ -89,7 +89,7 @@ function ProjectPage() {
                 ["Year", project.year],
               ].map(([k, v]) => (
                 <div key={k} className="grid grid-cols-[110px_1fr] gap-4 border-b border-border py-4">
-                  <dt className="font-cond text-[11px] uppercase tracking-[0.24em] text-muted-foreground">{k}</dt>
+                  <dt className="font-cond text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{k}</dt>
                   <dd className="text-sm">{v}</dd>
                 </div>
               ))}
@@ -99,8 +99,8 @@ function ProjectPage() {
       </section>
 
       {/* 3 — Video */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <p className="eyebrow mb-8 text-primary">Gameplay & Cinematics</p>
           <YouTubeModal
             videoId={media.showreelVideoId}
@@ -112,7 +112,7 @@ function ProjectPage() {
       </section>
 
       {/* 4 — Character development */}
-      <section className="border-t border-border py-20 md:py-28">
+      <section className="border-t border-border section-pad">
         <div className="mx-auto grid max-w-[1600px] items-center gap-12 px-5 md:grid-cols-2 md:px-10">
           <Reveal>
             <SectionTitle eyebrow="Character Development" lines={["Built", "to be read."]} />
@@ -130,8 +130,8 @@ function ProjectPage() {
       </section>
 
       {/* 5 — Environment */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <SectionTitle eyebrow="Environment Design" lines={["A world", "with scale."]} />
           <Reveal>
             <img
@@ -146,8 +146,8 @@ function ProjectPage() {
       </section>
 
       {/* 6 — Interactive 3D asset */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <p className="eyebrow mb-8 text-primary">Interactive Asset</p>
           <InteractiveModel
             modelUrl={media.interactiveModelUrl}
@@ -159,7 +159,7 @@ function ProjectPage() {
       </section>
 
       {/* 7 — UI */}
-      <section className="border-t border-border py-20 md:py-28">
+      <section className="border-t border-border section-pad">
         <div className="mx-auto grid max-w-[1600px] items-center gap-12 px-5 md:grid-cols-[1fr_1.2fr] md:px-10">
           <Reveal>
             <SectionTitle eyebrow="Game UI" lines={["Interface", "in play."]} />
@@ -177,8 +177,8 @@ function ProjectPage() {
       </section>
 
       {/* 8 — Marketing */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <SectionTitle eyebrow="Marketing Artwork" lines={["Made", "to convert."]} />
           <Reveal>
             <img
@@ -193,8 +193,8 @@ function ProjectPage() {
       </section>
 
       {/* 9 — Gallery */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <p className="eyebrow mb-8 text-primary">Gallery</p>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
             {project.gallery.map((g, i) => (
@@ -213,8 +213,8 @@ function ProjectPage() {
       </section>
 
       {/* 10 — Next project */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <p className="eyebrow text-muted-foreground">Next project</p>
           <Link
             to="/work/$slug"

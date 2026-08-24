@@ -47,7 +47,7 @@ function Index() {
       <CinematicHero onPlay={() => setReelOpen(true)} />
 
       {/* 02 — Studio introduction */}
-      <section className="relative border-t border-border py-24 md:py-32">
+      <section className="relative border-t border-border section-pad">
         <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:grid-cols-2 md:px-10">
           <Reveal>
             <h2 className="display-xl text-[clamp(2.2rem,6vw,5rem)]">
@@ -82,7 +82,7 @@ function Index() {
                 ].map(([k, v]) => (
                   <div key={v}>
                     <p className="font-display text-3xl md:text-5xl">{k}</p>
-                    <p className="mt-2 font-cond text-[11px] uppercase tracking-[0.24em] text-muted-foreground">{v}</p>
+                    <p className="mt-2 font-cond text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{v}</p>
                   </div>
                 ))}
               </div>
@@ -92,8 +92,8 @@ function Index() {
       </section>
 
       {/* 03 — Selected worlds */}
-      <section className="border-t border-border py-24 md:py-32">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <SectionTitle eyebrow="Selected Work" lines={["Selected", "worlds"]} />
           <div className="mt-16 space-y-6 md:space-y-10">
             {projects.map((p, i) => (
@@ -104,7 +104,7 @@ function Index() {
             <Link
               to="/work"
               data-cursor="GO"
-              className="mt-12 inline-flex items-center gap-3 border border-border px-8 py-4 font-cond text-sm uppercase tracking-[0.24em] transition-colors hover:border-primary hover:text-primary"
+              className="mt-12 inline-flex items-center gap-3 border border-border px-8 py-4 font-cond text-sm uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
             >
               All projects <ArrowRight className="h-4 w-4" />
             </Link>
@@ -113,7 +113,7 @@ function Index() {
       </section>
 
       {/* 04 — Interactive 3D lab */}
-      <section className="border-t border-border py-24 md:py-32">
+      <section className="border-t border-border section-pad">
         <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
             <SectionTitle eyebrow="3D Lab" lines={["Built", "in every", "dimension."]} />
@@ -139,8 +139,8 @@ function Index() {
       <UIShowcase />
 
       {/* 07 — Showreel */}
-      <section className="border-t border-border py-24 md:py-32">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <SectionTitle eyebrow="Showreel" lines={["Our work", "in motion."]} />
           <div className="mt-12">
             <YouTubeModal
@@ -157,8 +157,8 @@ function Index() {
       <ArtGallery />
 
       {/* 10 — Process */}
-      <section className="border-t border-border py-24 md:py-32">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <SectionTitle eyebrow="Process" lines={["How we", "build."]} />
           <div className="relative mt-16">
             <div className="absolute left-0 right-0 top-6 hidden h-px bg-border md:block" />
@@ -179,8 +179,8 @@ function Index() {
       </section>
 
       {/* 11 — Statement */}
-      <section className="grain relative overflow-hidden border-t border-border py-28 md:py-40">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="grain relative overflow-hidden border-t border-border section-pad">
+        <div className="container-page">
           <h2 className="display-xl relative z-0 text-[clamp(3.5rem,15vw,13rem)] text-foreground/90">
             <span className="block">Art</span>
             <span className="block text-primary">Meets</span>
@@ -196,8 +196,8 @@ function Index() {
       </section>
 
       {/* 12 — Final CTA */}
-      <section className="border-t border-border bg-[#08090B] py-28 md:py-40">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border bg-[#08090B] section-pad">
+        <div className="container-page">
           <SectionTitle eyebrow="Next" lines={["Let's build", "the next", "world."]} />
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-md text-sm text-muted-foreground md:text-base">
@@ -206,7 +206,7 @@ function Index() {
             <Link
               to="/contact"
               data-cursor="GO"
-              className="group mt-10 inline-flex items-center gap-6 bg-primary px-8 py-5 font-cond text-sm uppercase tracking-[0.24em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
+              className="group mt-10 inline-flex items-center gap-6 bg-primary px-8 py-5 font-cond text-sm uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
             >
               Start a project
               <ArrowRight className="h-6 w-6 transition-transform duration-500 group-hover:translate-x-3" />
@@ -233,7 +233,7 @@ function HeroReel({ onClose }: { onClose: () => void }) {
         type="button"
         onClick={onClose}
         aria-label="Close video"
-        className="absolute right-5 top-5 border border-border px-4 py-2 font-cond text-xs uppercase tracking-[0.24em]"
+        className="absolute right-5 top-5 border border-border px-4 py-2 font-cond text-xs uppercase tracking-[0.2em]"
       >
         Close
       </button>

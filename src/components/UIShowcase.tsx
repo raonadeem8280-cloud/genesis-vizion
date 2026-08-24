@@ -8,8 +8,8 @@ export function UIShowcase() {
   const screen = uiScreens[active]!;
 
   return (
-    <section className="border-t border-border py-24 md:py-32">
-      <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+    <section className="border-t border-border section-pad">
+      <div className="container-page">
         <SectionTitle eyebrow="Game UI / UX" lines={["Interfaces", "built to play."]} />
 
         <div className="mt-12 flex flex-wrap gap-2">
@@ -19,7 +19,7 @@ export function UIShowcase() {
               type="button"
               onClick={() => setActive(i)}
               aria-pressed={i === active}
-              className={`border px-5 py-3 font-cond text-xs uppercase tracking-[0.24em] transition-colors ${
+              className={`border px-5 py-3 font-cond text-xs uppercase tracking-[0.2em] transition-colors ${
                 i === active
                   ? "border-primary bg-primary text-primary-foreground"
                   : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
@@ -35,7 +35,7 @@ export function UIShowcase() {
           <div className="absolute inset-x-[4%] -top-3 hidden h-full border border-border/70 bg-surface/60 md:block" style={{ transform: "rotateX(4deg) scale(0.97)" }} />
 
           <div className="relative border border-border bg-surface p-2 md:p-3">
-            <div className="mb-2 flex items-center justify-between px-2 font-cond text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+            <div className="mb-2 flex items-center justify-between px-2 font-cond text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
               <span>Interface Preview</span>
               <span>{screen.label}</span>
             </div>

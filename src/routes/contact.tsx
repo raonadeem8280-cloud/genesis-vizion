@@ -39,7 +39,7 @@ function ContactPage() {
   return (
     <>
       <section className="border-b border-border pb-16 pt-40 md:pb-24 md:pt-52">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+        <div className="container-page">
           <p className="eyebrow text-primary">Contact</p>
           <h1 className="display-xl mt-6 text-[clamp(4rem,15vw,13rem)]">
             Start
@@ -53,7 +53,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="section-pad">
         <div className="mx-auto grid max-w-[1600px] gap-14 px-5 md:px-10 lg:grid-cols-[1.3fr_0.7fr]">
           <Reveal>
             {sent ? (
@@ -66,7 +66,7 @@ function ContactPage() {
                 <button
                   type="button"
                   onClick={() => setSent(false)}
-                  className="mt-8 border border-border px-6 py-3 font-cond text-xs uppercase tracking-[0.24em] hover:border-primary hover:text-primary"
+                  className="mt-8 border border-border px-6 py-3 font-cond text-xs uppercase tracking-[0.2em] hover:border-primary hover:text-primary"
                 >
                   Send another
                 </button>
@@ -132,7 +132,7 @@ function ContactPage() {
                   <button
                     type="submit"
                     data-cursor="GO"
-                    className="group inline-flex items-center gap-4 bg-primary px-10 py-5 font-cond text-sm uppercase tracking-[0.24em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
+                    className="group inline-flex items-center gap-4 bg-primary px-10 py-5 font-cond text-sm uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
                   >
                     Send brief <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
                   </button>
@@ -159,8 +159,8 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-[#08090B] py-24 md:py-32">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border bg-[#08090B] section-pad">
+        <div className="container-page">
           <h2 className="display-xl text-[clamp(2.5rem,10vw,9rem)]">
             Let's build
             <br />

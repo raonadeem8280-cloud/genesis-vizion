@@ -7,8 +7,8 @@ export function ServicesShowcase() {
   const [hover, setHover] = useState<string | null>(null);
 
   return (
-    <section className="relative border-t border-border py-24 md:py-32">
-      <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+    <section className="relative border-t border-border section-pad">
+      <div className="container-page">
         <SectionTitle eyebrow="Capabilities" lines={["What", "we create."]} />
 
         <ul className="mt-16 border-t border-border">

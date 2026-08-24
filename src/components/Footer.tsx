@@ -55,7 +55,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border px-5 py-6 md:px-10">
-        <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
           © 2026 {media.studioName} Studio. All rights reserved.
         </p>
       </div>

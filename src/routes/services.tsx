@@ -25,7 +25,7 @@ function ServicesPage() {
   return (
     <>
       <section className="border-b border-border pb-16 pt-40 md:pb-24 md:pt-52">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+        <div className="container-page">
           <p className="eyebrow text-primary">Services</p>
           <h1 className="display-xl mt-6 text-[clamp(4rem,15vw,13rem)]">
             From
@@ -37,8 +37,8 @@ function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="section-pad">
+        <div className="container-page">
           <div className="space-y-16 md:space-y-24">
             {servicesDetailed.map((s, i) => (
               <Reveal key={s.number}>
@@ -79,7 +79,7 @@ function ServicesPage() {
               <Link
                 to="/contact"
                 data-cursor="GO"
-                className="group mt-10 inline-flex items-center gap-4 bg-primary px-8 py-4 font-cond text-sm uppercase tracking-[0.24em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
+                className="group mt-10 inline-flex items-center gap-4 bg-primary px-8 py-4 font-cond text-sm uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
               >
                 Start a project <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
               </Link>

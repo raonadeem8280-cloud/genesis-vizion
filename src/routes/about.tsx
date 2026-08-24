@@ -55,7 +55,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="section-pad">
         <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:grid-cols-2 md:px-10">
           <Reveal>
             <p className="text-base leading-relaxed md:text-2xl">
@@ -75,8 +75,8 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <SectionTitle eyebrow="Inside" lines={["What we", "run on."]} />
           <div className="mt-16 grid gap-10 md:grid-cols-3">
             {blocks.map((b, i) => (
@@ -95,8 +95,8 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
             {galleryImages.slice(0, 6).map((g) => (
               <Reveal key={g.alt}>
