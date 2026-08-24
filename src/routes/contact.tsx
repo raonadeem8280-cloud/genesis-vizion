@@ -54,7 +54,7 @@ function ContactPage() {
       </section>
 
       <section className="section-pad">
-        <div className="mx-auto grid max-w-[1600px] gap-14 px-5 md:px-10 lg:grid-cols-[1.3fr_0.7fr]">
+        <div className="container-page grid gap-14 lg:grid-cols-[1.3fr_0.7fr]">
           <Reveal>
             {sent ? (
               <div className="border border-primary p-10 md:p-16">

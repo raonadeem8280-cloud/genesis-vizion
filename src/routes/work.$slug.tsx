@@ -65,7 +65,7 @@ function ProjectPage() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/40" />
-        <div className="relative mx-auto w-full max-w-[1600px] px-5 pb-16 md:px-10 md:pb-24">
+        <div className="relative container-page pb-16  md:pb-24">
           <p className="eyebrow text-primary">
             {project.number} — {project.category}
           </p>
@@ -76,7 +76,7 @@ function ProjectPage() {
 
       {/* 2 — Overview */}
       <section className="border-t border-border section-pad">
-        <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:grid-cols-[1.2fr_0.8fr] md:px-10">
+        <div className="container-page grid gap-12 md:grid-cols-[1.2fr_0.8fr]">
           <Reveal>
             <p className="text-base leading-relaxed md:text-2xl">{project.overview}</p>
           </Reveal>
@@ -113,7 +113,7 @@ function ProjectPage() {
 
       {/* 4 — Character development */}
       <section className="border-t border-border section-pad">
-        <div className="mx-auto grid max-w-[1600px] items-center gap-12 px-5 md:grid-cols-2 md:px-10">
+        <div className="container-page grid items-center gap-12 md:grid-cols-2">
           <Reveal>
             <SectionTitle eyebrow="Character Development" lines={["Built", "to be read."]} />
             <p className="mt-8 max-w-md text-sm text-muted-foreground md:text-base">{project.characterNote}</p>
@@ -160,7 +160,7 @@ function ProjectPage() {
 
       {/* 7 — UI */}
       <section className="border-t border-border section-pad">
-        <div className="mx-auto grid max-w-[1600px] items-center gap-12 px-5 md:grid-cols-[1fr_1.2fr] md:px-10">
+        <div className="container-page grid items-center gap-12 md:grid-cols-[1fr_1.2fr]">
           <Reveal>
             <SectionTitle eyebrow="Game UI" lines={["Interface", "in play."]} />
             <p className="mt-8 max-w-md text-sm text-muted-foreground md:text-base">{project.uiNote}</p>

@@ -27,7 +27,7 @@ export function Navbar() {
         scrolled ? "border-b border-border bg-background/80 py-3 backdrop-blur-xl" : "border-b border-transparent py-6"
       }`}
     >
-      <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-5 md:px-10" aria-label="Main">
+      <nav className="container-page flex items-center justify-between" aria-label="Main">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="block h-4 w-4 rotate-45 border-2 border-primary" />
           <span className="font-display text-xl uppercase tracking-[0.18em]">{media.studioName}</span>

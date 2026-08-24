@@ -13,7 +13,7 @@ const socials = ["Behance", "LinkedIn", "YouTube", "ArtStation"];
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto grid max-w-[1600px] gap-12 px-5 py-16 md:grid-cols-3 md:px-10">
+      <div className="container-page grid gap-12 py-16 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-3">
             <span className="block h-4 w-4 rotate-45 border-2 border-primary" />

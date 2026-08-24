@@ -43,7 +43,7 @@ function AboutPage() {
           className="absolute inset-0 h-full w-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/40" />
-        <div className="relative mx-auto w-full max-w-[1600px] px-5 pb-16 pt-40 md:px-10 md:pb-24">
+        <div className="relative container-page pb-16 pt-40  md:pb-24">
           <p className="eyebrow text-primary">The Studio</p>
           <h1 className="display-xl mt-6 text-[clamp(4rem,14vw,12rem)]">
             Play
@@ -56,7 +56,7 @@ function AboutPage() {
       </section>
 
       <section className="section-pad">
-        <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:grid-cols-2 md:px-10">
+        <div className="container-page grid gap-12 md:grid-cols-2">
           <Reveal>
             <p className="text-base leading-relaxed md:text-2xl">
               We are a multidisciplinary team of developers, artists, designers and marketers who spend our days

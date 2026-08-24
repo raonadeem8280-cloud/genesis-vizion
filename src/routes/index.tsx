@@ -48,7 +48,7 @@ function Index() {
 
       {/* 02 — Studio introduction */}
       <section className="relative border-t border-border section-pad">
-        <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:grid-cols-2 md:px-10">
+        <div className="container-page grid gap-12 md:grid-cols-2">
           <Reveal>
             <h2 className="display-xl text-[clamp(2.2rem,6vw,5rem)]">
               We don't just
@@ -114,7 +114,7 @@ function Index() {
 
       {/* 04 — Interactive 3D lab */}
       <section className="border-t border-border section-pad">
-        <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+        <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
             <SectionTitle eyebrow="3D Lab" lines={["Built", "in every", "dimension."]} />
             <Reveal delay={0.2}>
