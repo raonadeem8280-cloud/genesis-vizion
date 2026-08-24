@@ -43,12 +43,10 @@ function AboutPage() {
           className="absolute inset-0 h-full w-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/40" />
-        <div className="relative container-page pb-16 pt-40  md:pb-24">
+        <div className="relative container-page pb-20 pt-40 md:pb-28">
           <p className="eyebrow text-primary">The Studio</p>
-          <h1 className="display-xl mt-6 text-[clamp(4rem,14vw,12rem)]">
-            Play
-            <br />
-            Is Our
+          <h1 className="type-hero mt-8">
+            Play Is Our
             <br />
             Language<span className="text-primary">.</span>
           </h1>

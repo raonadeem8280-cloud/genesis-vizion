@@ -28,15 +28,15 @@ function WorkPage() {
 
   return (
     <>
-      <section className="border-b border-border pb-16 pt-40 md:pb-24 md:pt-52">
+      <section className="border-b border-border pb-20 pt-32 md:pb-28 md:pt-48">
         <div className="container-page">
           <p className="eyebrow text-primary">Portfolio</p>
-          <h1 className="display-xl mt-6 text-[clamp(4rem,15vw,13rem)]">
+          <h1 className="type-hero mt-8">
             Our
             <br />
             Worlds<span className="text-primary">.</span>
           </h1>
-          <p className="mt-8 max-w-lg text-sm text-muted-foreground md:text-base">
+          <p className="mt-10 max-w-[600px] text-sm leading-relaxed text-muted-foreground md:text-base">
             Four fictional worlds built end-to-end in the studio — development, art, interface and campaign.
           </p>
         </div>
@@ -62,7 +62,7 @@ function WorkPage() {
             ))}
           </div>
 
-          <div className="mt-12 space-y-6 md:space-y-10">
+          <div className="mt-16 space-y-16 md:space-y-24">
             {visible.map((p, i) => (
               <ProjectBlock key={p.slug} project={p} index={i} />
             ))}

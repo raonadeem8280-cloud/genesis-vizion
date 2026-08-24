@@ -38,7 +38,7 @@ function ProjectNotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center px-5">
       <div className="text-center">
-        <h1 className="display-xl text-6xl">Project not found</h1>
+        <h1 className="type-sub">Project not found</h1>
         <Link to="/work" className="mt-8 inline-block border border-border px-6 py-3 font-cond uppercase tracking-[0.2em]">
           Back to work
         </Link>
@@ -69,8 +69,8 @@ function ProjectPage() {
           <p className="eyebrow text-primary">
             {project.number} — {project.category}
           </p>
-          <h1 className="display-xl mt-6 text-[clamp(3.2rem,13vw,12rem)]">{project.title}</h1>
-          <p className="mt-6 max-w-xl text-sm text-muted-foreground md:text-lg">{project.summary}</p>
+          <h1 className="type-hero mt-8">{project.title}</h1>
+          <p className="mt-8 max-w-[620px] text-sm leading-relaxed text-muted-foreground md:text-lg">{project.summary}</p>
         </div>
       </section>
 
@@ -115,8 +115,8 @@ function ProjectPage() {
       <section className="border-t border-border section-pad">
         <div className="container-page grid items-center gap-12 md:grid-cols-2">
           <Reveal>
-            <SectionTitle eyebrow="Character Development" lines={["Built", "to be read."]} />
-            <p className="mt-8 max-w-md text-sm text-muted-foreground md:text-base">{project.characterNote}</p>
+            <SectionTitle eyebrow="Character Development" lines={["Built", "to be read."]} size="sub" />
+            <p className="mt-10 max-w-[560px] text-sm leading-relaxed text-muted-foreground md:text-base">{project.characterNote}</p>
           </Reveal>
           <Reveal delay={0.1}>
             <img
@@ -132,15 +132,15 @@ function ProjectPage() {
       {/* 5 — Environment */}
       <section className="border-t border-border section-pad">
         <div className="container-page">
-          <SectionTitle eyebrow="Environment Design" lines={["A world", "with scale."]} />
+          <SectionTitle eyebrow="Environment Design" lines={["A world", "with scale."]} size="sub" />
           <Reveal>
             <img
               src={project.environment}
               alt={`${project.title} environment art`}
               loading="lazy"
-              className="mt-12 aspect-[16/9] w-full border border-border object-cover"
+              className="mt-14 aspect-[16/9] w-full border border-border object-cover"
             />
-            <p className="mt-6 max-w-2xl text-sm text-muted-foreground">{project.environmentNote}</p>
+            <p className="mt-8 max-w-[680px] text-sm leading-relaxed text-muted-foreground">{project.environmentNote}</p>
           </Reveal>
         </div>
       </section>
@@ -162,8 +162,8 @@ function ProjectPage() {
       <section className="border-t border-border section-pad">
         <div className="container-page grid items-center gap-12 md:grid-cols-[1fr_1.2fr]">
           <Reveal>
-            <SectionTitle eyebrow="Game UI" lines={["Interface", "in play."]} />
-            <p className="mt-8 max-w-md text-sm text-muted-foreground md:text-base">{project.uiNote}</p>
+            <SectionTitle eyebrow="Game UI" lines={["Interface", "in play."]} size="sub" />
+            <p className="mt-10 max-w-[560px] text-sm leading-relaxed text-muted-foreground md:text-base">{project.uiNote}</p>
           </Reveal>
           <Reveal delay={0.1}>
             <img
@@ -179,15 +179,15 @@ function ProjectPage() {
       {/* 8 — Marketing */}
       <section className="border-t border-border section-pad">
         <div className="container-page">
-          <SectionTitle eyebrow="Marketing Artwork" lines={["Made", "to convert."]} />
+          <SectionTitle eyebrow="Marketing Artwork" lines={["Made", "to convert."]} size="sub" />
           <Reveal>
             <img
               src={project.marketing}
               alt={`${project.title} marketing key art`}
               loading="lazy"
-              className="mt-12 aspect-[16/9] w-full border border-border object-cover"
+              className="mt-14 aspect-[16/9] w-full border border-border object-cover"
             />
-            <p className="mt-6 max-w-2xl text-sm text-muted-foreground">{project.marketingNote}</p>
+            <p className="mt-8 max-w-[680px] text-sm leading-relaxed text-muted-foreground">{project.marketingNote}</p>
           </Reveal>
         </div>
       </section>
@@ -222,7 +222,7 @@ function ProjectPage() {
             data-cursor="GO"
             className="group mt-6 flex flex-wrap items-end justify-between gap-6"
           >
-            <span className="display-xl text-[clamp(3rem,11vw,10rem)] transition-colors group-hover:text-primary">
+            <span className="type-sub transition-colors group-hover:text-primary">
               {next.title}
             </span>
             <ArrowRight className="h-10 w-10 transition-transform duration-500 group-hover:translate-x-4" />

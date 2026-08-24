@@ -24,13 +24,11 @@ export const Route = createFileRoute("/services")({
 function ServicesPage() {
   return (
     <>
-      <section className="border-b border-border pb-16 pt-40 md:pb-24 md:pt-52">
+      <section className="border-b border-border pb-20 pt-32 md:pb-28 md:pt-48">
         <div className="container-page">
           <p className="eyebrow text-primary">Services</p>
-          <h1 className="display-xl mt-6 text-[clamp(4rem,15vw,13rem)]">
-            From
-            <br />
-            Idea
+          <h1 className="type-hero mt-8">
+            From Idea
             <br />
             To Play<span className="text-primary">.</span>
           </h1>
@@ -39,7 +37,7 @@ function ServicesPage() {
 
       <section className="section-pad">
         <div className="container-page">
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-20 md:space-y-32">
             {servicesDetailed.map((s, i) => (
               <Reveal key={s.number}>
                 <article
@@ -47,8 +45,8 @@ function ServicesPage() {
                 >
                   <div>
                     <p className="font-display text-2xl text-primary">{s.number}</p>
-                    <h2 className="mt-2 font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-none">{s.title}</h2>
-                    <p className="mt-5 max-w-md text-sm text-muted-foreground md:text-base">{s.description}</p>
+                    <h2 className="type-h3 mt-3">{s.title}</h2>
+                    <p className="mt-5 max-w-[560px] text-sm leading-relaxed text-muted-foreground md:text-base">{s.description}</p>
                     <ul className="mt-8 border-t border-border">
                       {s.deliverables.map((d) => (
                         <li key={d} className="border-b border-border py-3 font-cond text-sm uppercase tracking-[0.18em]">
@@ -71,8 +69,8 @@ function ServicesPage() {
           </div>
 
           <Reveal>
-            <div className="mt-24 border border-border p-10 text-center md:p-20">
-              <h2 className="display-xl text-[clamp(2.2rem,7vw,6rem)]">Need all of it?</h2>
+            <div className="mt-28 border border-border p-10 text-center md:mt-40 md:p-20">
+              <h2 className="type-sub">Need all of it?</h2>
               <p className="mx-auto mt-6 max-w-md text-sm text-muted-foreground">
                 Most partners start with one discipline and end up handing us the pipeline.
               </p>

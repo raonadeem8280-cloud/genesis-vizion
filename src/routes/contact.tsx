@@ -38,15 +38,15 @@ function ContactPage() {
 
   return (
     <>
-      <section className="border-b border-border pb-16 pt-40 md:pb-24 md:pt-52">
+      <section className="border-b border-border pb-20 pt-32 md:pb-28 md:pt-48">
         <div className="container-page">
           <p className="eyebrow text-primary">Contact</p>
-          <h1 className="display-xl mt-6 text-[clamp(4rem,15vw,13rem)]">
+          <h1 className="type-hero mt-8">
             Start
             <br />
             A Project<span className="text-primary">.</span>
           </h1>
-          <p className="mt-8 max-w-lg text-sm text-muted-foreground md:text-base">
+          <p className="mt-10 max-w-[600px] text-sm leading-relaxed text-muted-foreground md:text-base">
             Tell us what you're building and where it hurts. We reply within two working days with a plan, not a
             brochure.
           </p>
@@ -58,7 +58,7 @@ function ContactPage() {
           <Reveal>
             {sent ? (
               <div className="border border-primary p-10 md:p-16">
-                <h2 className="display-xl text-4xl md:text-6xl">Brief received.</h2>
+                <h2 className="type-h3">Brief received.</h2>
                 <p className="mt-6 max-w-md text-sm text-muted-foreground">
                   Thanks — this demo form doesn't send anywhere yet. Connect it to your inbox or a backend and it's
                   live.
@@ -161,12 +161,10 @@ function ContactPage() {
 
       <section className="border-t border-border bg-[#08090B] section-pad">
         <div className="container-page">
-          <h2 className="display-xl text-[clamp(2.5rem,10vw,9rem)]">
+          <h2 className="type-section">
             Let's build
             <br />
-            the next
-            <br />
-            world<span className="text-primary">.</span>
+            the next world<span className="text-primary">.</span>
           </h2>
         </div>
       </section>
