@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { CinematicHero } from "@/components/CinematicHero";
+import { GamesCarousel } from "@/components/GamesCarousel";
+import { WhatsNewSection } from "@/components/WhatsNewSection";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Reveal } from "@/components/Reveal";
 import { ProjectBlock } from "@/components/ProjectShowcase";
@@ -46,8 +48,11 @@ function Index() {
     <>
       <CinematicHero onPlay={() => setReelOpen(true)} />
 
+      <GamesCarousel />
+      <WhatsNewSection />
+
       {/* 02 — Studio introduction */}
-      <section className="section-light relative border-t border-border section-pad">
+      <section className="relative border-t border-border section-pad">
         <div className="container-page grid gap-12 md:grid-cols-2">
           <Reveal>
             <h2 className="display-xl text-[clamp(2.2rem,6vw,5rem)]">
