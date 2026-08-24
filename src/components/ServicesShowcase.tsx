@@ -7,7 +7,7 @@ export function ServicesShowcase() {
   const [hover, setHover] = useState<string | null>(null);
 
   return (
-    <section className="relative border-t border-border section-pad">
+    <section className="section-light relative border-t border-border section-pad">
       <div className="container-page">
         <SectionTitle eyebrow="Capabilities" lines={["What", "we create."]} />
 
@@ -18,13 +18,13 @@ export function ServicesShowcase() {
                 <div
                   onMouseEnter={() => setHover(s.number)}
                   onMouseLeave={() => setHover(null)}
-                  className="group relative grid grid-cols-[auto_1fr] items-center gap-5 border-b border-border py-8 md:grid-cols-[80px_1fr_1fr] md:py-10"
+                  className="group relative grid min-h-[110px] grid-cols-[auto_1fr] items-center gap-5 border-b border-border py-8 px-4 transition-colors duration-300 hover:bg-[#111318] md:grid-cols-[80px_1fr_1fr] md:py-10"
                 >
                   <span className="font-display text-2xl text-primary md:text-3xl">{s.number}</span>
-                  <h3 className="font-display text-[clamp(1.5rem,4vw,3.2rem)] uppercase leading-none transition-colors duration-300 group-hover:text-primary">
+                  <h3 className="font-display text-[clamp(1.5rem,4vw,3.2rem)] uppercase leading-none transition-colors duration-300 group-hover:text-[#f5f3ed]">
                     {s.title}
                   </h3>
-                  <p className="col-span-2 max-w-md text-sm text-muted-foreground md:col-span-1 md:justify-self-end md:text-right">
+                  <p className="col-span-2 max-w-md text-sm text-[var(--text-muted-light)] transition-colors duration-300 md:col-span-1 md:justify-self-end md:text-right group-hover:text-[#a9adb2]">
                     {s.description}
                   </p>
 

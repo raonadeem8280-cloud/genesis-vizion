@@ -42,10 +42,26 @@
   --surface-2: oklch(0.225 0.008 265);
   --foreground: oklch(0.95 0.011 95);
   --muted-foreground: oklch(0.685 0.008 260);
-  --primary: oklch(0.647 0.216 22);
+  --primary: oklch(0.552 0.155 22);
   --primary-foreground: oklch(0.97 0.01 95);
-  --accent: oklch(0.78 0.128 187);
+  --accent: oklch(0.552 0.155 22);
   --border: oklch(0.3 0.008 265);
+
+  /* Light/off-white "editorial" section tokens — see .section-light */
+  --surface-light: #ece8e1;
+  --surface-white: #f7f5f0;
+  --text-dark: #111318;
+  --text-muted-light: #6b6f74;
+  --line-light: rgba(15, 18, 22, 0.16);
+}
+
+@utility section-light {
+  background-color: var(--surface-light);
+  color: var(--text-dark);
+  --color-border: var(--line-light);
+  --color-muted-foreground: var(--text-muted-light);
+  --color-background: var(--surface-light);
+  --color-foreground: var(--text-dark);
 }
 
 @utility grain {

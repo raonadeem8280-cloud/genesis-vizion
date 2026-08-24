@@ -35,8 +35,7 @@ export function InteractiveModel({ modelUrl, poster, title, description }: Props
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{
-          background:
-            "radial-gradient(60% 60% at 50% 45%, rgba(25,211,197,0.14), transparent 70%), radial-gradient(40% 40% at 80% 80%, rgba(255,70,85,0.12), transparent 70%)",
+          background: "radial-gradient(45% 45% at 65% 75%, rgba(217,58,71,0.12), transparent 70%)",
         }}
       />
 
