@@ -63,16 +63,84 @@
 @utility display-xl {
   font-family: var(--font-display);
   text-transform: uppercase;
-  line-height: 0.82;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+}
+
+/* Typographic scale ------------------------------------------------ */
+
+@utility type-hero {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(3rem, 15vw, 5.125rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  @media (min-width: 768px) {
+    font-size: clamp(4rem, 8vw, 9.375rem);
+    line-height: 0.9;
+  }
+}
+
+@utility type-section {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 11vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  @media (min-width: 768px) {
+    font-size: clamp(3.25rem, 6.5vw, 6.875rem);
+    line-height: 0.92;
+  }
+}
+
+@utility type-sub {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(2rem, 9vw, 2.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  @media (min-width: 768px) {
+    font-size: clamp(2.5rem, 5vw, 5.125rem);
+    line-height: 0.95;
+  }
+}
+
+@utility type-h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(1.4rem, 3vw, 2.125rem);
+  line-height: 1.05;
   letter-spacing: -0.01em;
 }
 
 @utility eyebrow {
   font-family: var(--font-cond);
   text-transform: uppercase;
-  letter-spacing: 0.28em;
-  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
   font-weight: 500;
+}
+
+/* Layout ------------------------------------------------------------ */
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1440px;
+  padding-inline: 1.25rem;
+  @media (min-width: 640px) {
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 3.5rem;
+  }
+}
+
+@utility section-pad {
+  padding-block: clamp(4.5rem, 9vw, 6.25rem);
+  @media (min-width: 768px) {
+    padding-block: clamp(7.5rem, 10vw, 11.25rem);
+  }
 }
 
 @utility hairline {
