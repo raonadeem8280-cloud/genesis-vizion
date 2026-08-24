@@ -24,10 +24,10 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "border-b border-border bg-background/80 py-3 backdrop-blur-xl" : "border-b border-transparent py-6"
+        scrolled ? "border-b border-border bg-background/85 backdrop-blur-xl" : "border-b border-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-5 md:px-10" aria-label="Main">
+      <nav className="container-page flex h-16 items-center justify-between md:h-20" aria-label="Main">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="block h-4 w-4 rotate-45 border-2 border-primary" />
           <span className="font-display text-xl uppercase tracking-[0.18em]">{media.studioName}</span>
@@ -38,7 +38,7 @@ export function Navbar() {
             <li key={l.to}>
               <Link
                 to={l.to}
-                className="font-cond text-sm uppercase tracking-[0.28em] text-muted-foreground transition-colors hover:text-foreground"
+                className="font-cond text-sm uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
                 activeProps={{ className: "text-foreground" }}
               >
                 {l.label}
@@ -51,7 +51,7 @@ export function Navbar() {
           <Link
             to="/contact"
             data-cursor="GO"
-            className="hidden bg-primary px-6 py-3 font-cond text-sm uppercase tracking-[0.24em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background md:inline-block"
+            className="hidden bg-primary px-6 py-3 font-cond text-sm uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background md:inline-block"
           >
             Start a project
           </Link>
@@ -86,7 +86,7 @@ export function Navbar() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="block bg-primary py-4 text-center font-cond text-sm uppercase tracking-[0.24em] text-primary-foreground"
+              className="block bg-primary py-4 text-center font-cond text-sm uppercase tracking-[0.2em] text-primary-foreground"
             >
               Start a project
             </Link>

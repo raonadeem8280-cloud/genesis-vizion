@@ -38,27 +38,27 @@ function ContactPage() {
 
   return (
     <>
-      <section className="border-b border-border pb-16 pt-40 md:pb-24 md:pt-52">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-b border-border pb-20 pt-32 md:pb-28 md:pt-48">
+        <div className="container-page">
           <p className="eyebrow text-primary">Contact</p>
-          <h1 className="display-xl mt-6 text-[clamp(4rem,15vw,13rem)]">
+          <h1 className="type-hero mt-8">
             Start
             <br />
             A Project<span className="text-primary">.</span>
           </h1>
-          <p className="mt-8 max-w-lg text-sm text-muted-foreground md:text-base">
+          <p className="mt-10 max-w-[600px] text-sm leading-relaxed text-muted-foreground md:text-base">
             Tell us what you're building and where it hurts. We reply within two working days with a plan, not a
             brochure.
           </p>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto grid max-w-[1600px] gap-14 px-5 md:px-10 lg:grid-cols-[1.3fr_0.7fr]">
+      <section className="section-pad">
+        <div className="container-page grid gap-14 lg:grid-cols-[1.3fr_0.7fr]">
           <Reveal>
             {sent ? (
               <div className="border border-primary p-10 md:p-16">
-                <h2 className="display-xl text-4xl md:text-6xl">Brief received.</h2>
+                <h2 className="type-h3">Brief received.</h2>
                 <p className="mt-6 max-w-md text-sm text-muted-foreground">
                   Thanks — this demo form doesn't send anywhere yet. Connect it to your inbox or a backend and it's
                   live.
@@ -66,7 +66,7 @@ function ContactPage() {
                 <button
                   type="button"
                   onClick={() => setSent(false)}
-                  className="mt-8 border border-border px-6 py-3 font-cond text-xs uppercase tracking-[0.24em] hover:border-primary hover:text-primary"
+                  className="mt-8 border border-border px-6 py-3 font-cond text-xs uppercase tracking-[0.2em] hover:border-primary hover:text-primary"
                 >
                   Send another
                 </button>
@@ -132,7 +132,7 @@ function ContactPage() {
                   <button
                     type="submit"
                     data-cursor="GO"
-                    className="group inline-flex items-center gap-4 bg-primary px-10 py-5 font-cond text-sm uppercase tracking-[0.24em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
+                    className="group inline-flex items-center gap-4 bg-primary px-10 py-5 font-cond text-sm uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
                   >
                     Send brief <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
                   </button>
@@ -159,14 +159,12 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-[#08090B] py-24 md:py-32">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-          <h2 className="display-xl text-[clamp(2.5rem,10vw,9rem)]">
+      <section className="border-t border-border bg-[#08090B] section-pad">
+        <div className="container-page">
+          <h2 className="type-section">
             Let's build
             <br />
-            the next
-            <br />
-            world<span className="text-primary">.</span>
+            the next world<span className="text-primary">.</span>
           </h2>
         </div>
       </section>

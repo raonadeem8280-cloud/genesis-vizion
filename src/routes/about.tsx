@@ -43,20 +43,18 @@ function AboutPage() {
           className="absolute inset-0 h-full w-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/40" />
-        <div className="relative mx-auto w-full max-w-[1600px] px-5 pb-16 pt-40 md:px-10 md:pb-24">
+        <div className="relative container-page pb-20 pt-40 md:pb-28">
           <p className="eyebrow text-primary">The Studio</p>
-          <h1 className="display-xl mt-6 text-[clamp(4rem,14vw,12rem)]">
-            Play
-            <br />
-            Is Our
+          <h1 className="type-hero mt-8">
+            Play Is Our
             <br />
             Language<span className="text-primary">.</span>
           </h1>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
-        <div className="mx-auto grid max-w-[1600px] gap-12 px-5 md:grid-cols-2 md:px-10">
+      <section className="section-pad">
+        <div className="container-page grid gap-12 md:grid-cols-2">
           <Reveal>
             <p className="text-base leading-relaxed md:text-2xl">
               We are a multidisciplinary team of developers, artists, designers and marketers who spend our days
@@ -75,8 +73,8 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <SectionTitle eyebrow="Inside" lines={["What we", "run on."]} />
           <div className="mt-16 grid gap-10 md:grid-cols-3">
             {blocks.map((b, i) => (
@@ -95,8 +93,8 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <section className="border-t border-border section-pad">
+        <div className="container-page">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
             {galleryImages.slice(0, 6).map((g) => (
               <Reveal key={g.alt}>
