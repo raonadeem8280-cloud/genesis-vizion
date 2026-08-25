@@ -3,6 +3,8 @@ import { Reveal } from "./Reveal";
 import { newsItems } from "@/data/news";
 
 export function WhatsNewSection() {
+  const [featured, ...rest] = newsItems;
+
   return (
     <section className="section-light border-t border-border section-pad">
       <div className="container-page">
@@ -21,34 +23,70 @@ export function WhatsNewSection() {
           </Reveal>
         </div>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-3">
-          {newsItems.map((item, i) => (
-            <Reveal
-              key={item.slug}
-              delay={i * 0.06}
-              className={item.size === "large" ? "md:col-span-2 md:row-span-1" : ""}
-            >
+        {/* Asymmetric feature + list grid */}
+        <div className="mt-10 grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+          {featured && (
+            <Reveal>
               <a href="#" data-cursor="VIEW" className="group block">
-                <div className="overflow-hidden border border-border">
+                <div className="card-elevated relative overflow-hidden">
+                  <img
+                    src={featured.image}
+                    alt={featured.title}
+                    loading="eager"
+                    className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-6">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141212]">
+                      <span className="h-2 w-2 rounded-full bg-primary" />
+                    </span>
+                    <p className="font-cond text-xs uppercase tracking-[0.2em] text-primary">{featured.category}</p>
+                  </div>
+                </div>
+                <h3 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.6rem)] uppercase leading-[1.02] transition-colors group-hover:text-primary">
+                  {featured.title}
+                </h3>
+                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-[var(--text-muted-light)]">
+                  {featured.date}
+                </p>
+              </a>
+            </Reveal>
+          )}
+
+          <div className="flex flex-col gap-5">
+            {rest.map((item, i) => (
+              <Reveal key={item.slug} delay={i * 0.06 + 0.1}>
+                <a
+                  href="#"
+                  data-cursor="VIEW"
+                  className="card-elevated group flex items-center gap-4 border border-border bg-background/40 p-4"
+                >
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#141212]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                      </span>
+                      <p className="font-cond text-[11px] uppercase tracking-[0.2em] text-primary">
+                        {item.category}
+                      </p>
+                    </div>
+                    <h4 className="mt-3 font-display text-base uppercase leading-[1.1] transition-colors group-hover:text-primary md:text-lg">
+                      {item.title}
+                    </h4>
+                    <p className="mt-2 text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted-light)]">
+                      {item.date}
+                    </p>
+                  </div>
                   <img
                     src={item.image}
                     alt={item.title}
-                    loading={i === 0 ? "eager" : "lazy"}
-                    className="aspect-video w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+                    loading="lazy"
+                    className="h-20 w-28 shrink-0 rounded-lg object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                   />
-                </div>
-                <p className="mt-5 font-cond text-xs uppercase tracking-[0.2em] text-primary">{item.category}</p>
-                <h3
-                  className={`mt-2 font-display uppercase leading-[1.02] transition-colors group-hover:text-primary ${
-                    item.size === "large" ? "text-[clamp(1.6rem,3vw,2.6rem)]" : "text-[clamp(1.3rem,2.4vw,1.9rem)]"
-                  }`}
-                >
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-[var(--text-muted-light)]">{item.date}</p>
-              </a>
-            </Reveal>
-          ))}
+                </a>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

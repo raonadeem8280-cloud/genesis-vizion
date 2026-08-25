@@ -1,11 +1,21 @@
 import { Link } from "@tanstack/react-router";
-import { motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { media } from "@/data/media";
+import { projects } from "@/data/projects";
+import { characters } from "@/data/characters";
+
+const latest = projects[0];
 
 export function CinematicHero({ onPlay }: { onPlay: () => void }) {
   const reduced = useReducedMotion();
   const [p, setP] = useState({ x: 0, y: 0 });
+  const [videoReady, setVideoReady] = useState(false);
+  const [charIndex, setCharIndex] = useState(0);
+  const active = characters[charIndex];
+
+  const cycleCharacter = () => setCharIndex((i) => (i + 1) % characters.length);
 
   useEffect(() => {
     if (reduced || !window.matchMedia("(pointer: fine)").matches) return;
@@ -28,20 +38,104 @@ export function CinematicHero({ onPlay }: { onPlay: () => void }) {
         className="absolute inset-0 z-0 h-full w-full scale-105 object-cover opacity-60"
         style={{ transform: `translate3d(${p.x * -12}px, ${p.y * -8}px, 0) scale(1.08)` }}
       />
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(70%_70%_at_28%_50%,transparent,rgba(8,9,11,0.9))]" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-t from-background via-background/45 to-background/70" />
 
-      <motion.img
-        src={media.heroCharacter}
-        alt="Original fictional tactical game hero, full body render"
-        width={1024}
-        height={1536}
-        initial={reduced ? false : { opacity: 0, y: 28 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute bottom-0 right-[-22%] z-20 h-[54%] w-auto max-w-[50vw] object-contain opacity-70 drop-shadow-[0_30px_80px_rgba(0,0,0,0.85)] sm:right-[-10%] md:right-[2%] md:h-[82%] md:opacity-100 lg:right-[5%]"
-        style={{ transform: `translate3d(${p.x * 18}px, ${p.y * 10}px, 0)` }}
-      />
+      {/* Showreel loop as an ambient background video — skipped entirely under reduced-motion */}
+      {!reduced && (
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${media.showreelVideoId}?autoplay=1&mute=1&loop=1&controls=0&playlist=${media.showreelVideoId}&modestbranding=1&rel=0&showinfo=0&disablekb=1&playsinline=1`}
+            title="Studio showreel — ambient background loop"
+            aria-hidden="true"
+            tabIndex={-1}
+            allow="autoplay; encrypted-media"
+            onLoad={() => setVideoReady(true)}
+            className={`pointer-events-none absolute left-1/2 top-1/2 h-[130%] w-[178%] -translate-x-1/2 -translate-y-1/2 sm:h-[120%] sm:w-[160%] ${
+              videoReady ? "opacity-90" : "opacity-0"
+            } transition-opacity duration-[1200ms]`}
+          />
+        </div>
+      )}
+
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(70%_70%_at_28%_50%,transparent,rgba(8,9,11,0.55)_100%)]" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+      {/* Dedicated legibility gradient behind the copy column only — keeps the headline readable now that the
+          global vignette above is much lighter and the video shows through everywhere else. */}
+      <div className="absolute inset-y-0 left-0 z-0 w-full bg-gradient-to-r from-background/85 via-background/35 to-transparent md:w-[70%]" />
+
+      {/* Interactive character stage — shifted off the video's focal area, smaller, click to cycle cast members
+          with a CSS 3D flip (perspective + rotateY). No WebGL model in this project yet, so this is the
+          "3D style" interaction achievable with the existing stack (motion + CSS 3D transforms). */}
+      <div
+        className="absolute bottom-0 right-[2%] z-20 flex flex-col items-center gap-3 sm:right-[4%] md:right-[6%] lg:right-[8%]"
+        style={{ perspective: 1400 }}
+      >
+        <AnimatePresence mode="popLayout">
+          <motion.button
+            key={active.id}
+            type="button"
+            onClick={cycleCharacter}
+            data-cursor="SWITCH"
+            aria-label={`Switch character — currently ${active.name}, click to view next`}
+            initial={reduced ? false : { rotateY: 90, opacity: 0 }}
+            animate={{ rotateY: 0, opacity: 1 }}
+            exit={reduced ? { opacity: 0 } : { rotateY: -90, opacity: 0 }}
+            whileTap={reduced ? undefined : { scale: 0.94 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            style={{ transformStyle: "preserve-3d" }}
+            className="block cursor-pointer border-none bg-transparent p-0"
+          >
+            <motion.img
+              src={active.image}
+              alt={`${active.name}, ${active.role} — click to view the next character`}
+              width={640}
+              height={960}
+              animate={reduced ? {} : { y: [0, -10, 0] }}
+              transition={reduced ? undefined : { duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+              className="h-[42vh] w-auto max-w-[80vw] object-contain opacity-90 drop-shadow-[0_30px_80px_rgba(0,0,0,0.85)] sm:h-[48vh] md:h-[58vh]"
+              style={{ transform: `translate3d(${p.x * 14}px, ${p.y * 8}px, 0)` }}
+            />
+          </motion.button>
+        </AnimatePresence>
+
+        <motion.div
+          key={`${active.id}-tag`}
+          initial={reduced ? false : { opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.15 }}
+          className="card-elevated mb-4 flex items-center gap-2 border border-border bg-background/60 px-3 py-1.5 backdrop-blur-sm"
+        >
+          <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: active.accent }} />
+          <span className="font-cond text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+            {active.name} · <span className="text-foreground">{active.role}</span>
+          </span>
+        </motion.div>
+      </div>
+
+      {/* Floating badge — anchored over the hero art, top-right, like the reference's overlay callout */}
+      <motion.div
+        initial={reduced ? false : { opacity: 0, y: 20 }}
+        animate={{
+          opacity: 1,
+          y: reduced ? 0 : [0, -8, 0],
+        }}
+        transition={
+          reduced
+            ? { duration: 0.6 }
+            : {
+                opacity: { duration: 0.6, delay: 0.3 },
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.9 },
+              }
+        }
+        className="card-elevated absolute right-6 top-[calc(88px+2.5rem)] z-30 inline-flex items-center gap-3 border border-border bg-background/60 px-4 py-2 backdrop-blur-sm sm:right-10 md:right-[8%] lg:right-[14%]"
+      >
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+        </span>
+        <span className="whitespace-nowrap font-cond text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+          Latest Release — <span className="text-foreground">{latest.title}</span>
+        </span>
+      </motion.div>
 
       <div className="container-page relative z-30">
         <div className="max-w-[640px] md:max-w-[52%]">
@@ -97,13 +191,11 @@ export function CinematicHero({ onPlay }: { onPlay: () => void }) {
             >
               Explore our work
             </Link>
-            <button
-              type="button"
-              onClick={onPlay}
-              data-cursor="PLAY"
-              className="border border-border px-8 py-4 font-cond text-sm uppercase tracking-[0.2em] transition-colors hover:border-accent hover:text-accent"
-            >
-              Play showreel
+            <button type="button" onClick={onPlay} data-cursor="PLAY" className="pill-cta group">
+              <span className="pill-cta-icon">
+                <Play className="h-4 w-4 fill-current" />
+              </span>
+              <span className="font-cond text-sm uppercase tracking-[0.2em]">Play showreel</span>
             </button>
           </motion.div>
         </div>

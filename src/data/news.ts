@@ -1,6 +1,7 @@
 import galleryCinematic from "@/assets/gallery-cinematic.jpg";
 import galleryEnv from "@/assets/gallery-env.jpg";
 import uiHud from "@/assets/ui-hud.jpg";
+import charKira from "@/assets/char-kira.png";
 
 export type NewsItem = {
   slug: string;
@@ -35,6 +36,14 @@ export const newsItems: NewsItem[] = [
     title: "A commerce HUD that disappears into play",
     date: "Jun 2026",
     image: uiHud,
+    size: "normal",
+  },
+  {
+    slug: "kira-voss-reveal",
+    category: "Character Reveal",
+    title: "Meet Kira Voss, Neon Requiem's recon specialist",
+    date: "May 2026",
+    image: charKira,
     size: "normal",
   },
 ];

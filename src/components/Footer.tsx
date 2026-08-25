@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ArrowUp } from "lucide-react";
 import { media } from "@/data/media";
 
 const nav = [
@@ -54,10 +55,21 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-border px-5 py-6 md:px-10">
-        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          © 2026 {media.studioName} Studio. All rights reserved.
-        </p>
+      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border px-5 py-6 md:px-10">
+        <div className="flex items-center gap-3">
+          <span className="h-4 w-px bg-primary" />
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            © 2026 {media.studioName} Studio. All rights reserved.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="group inline-flex items-center gap-2 font-cond text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-primary"
+        >
+          Back to top
+          <ArrowUp className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5" />
+        </button>
       </div>
     </footer>
   );
