@@ -2,19 +2,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { CinematicHero } from "@/components/CinematicHero";
-import { GamesCarousel } from "@/components/GamesCarousel";
 import { ExploreStudio } from "@/components/ExploreStudio";
-import { WhatsNewSection } from "@/components/WhatsNewSection";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Reveal } from "@/components/Reveal";
-import { ProjectBlock } from "@/components/ProjectShowcase";
 import { CharacterShowcase } from "@/components/CharacterShowcase";
 import { UIShowcase } from "@/components/UIShowcase";
 import { ServicesShowcase } from "@/components/ServicesShowcase";
 import { ArtGallery } from "@/components/ArtGallery";
 import { InteractiveModel } from "@/components/InteractiveModel";
 import { YouTubeModal } from "@/components/YouTubeModal";
-import { projects } from "@/data/projects";
 import { media } from "@/data/media";
 
 const title = "Atlas Forge — Premium Game Development, Art & UI/UX Studio";
@@ -49,9 +45,7 @@ function Index() {
     <>
       <CinematicHero onPlay={() => setReelOpen(true)} />
 
-      <GamesCarousel />
       <ExploreStudio />
-      <WhatsNewSection />
 
       {/* 02 — Studio introduction */}
       <section className="relative border-t border-border section-pad">
@@ -98,28 +92,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 03 — Selected worlds */}
-      <section className="border-t border-border section-pad">
-        <div className="container-page">
-          <SectionTitle eyebrow="Selected Work" lines={["Selected", "worlds"]} />
-          <div className="mt-16 space-y-6 md:space-y-10">
-            {projects.map((p, i) => (
-              <ProjectBlock key={p.slug} project={p} index={i} />
-            ))}
-          </div>
-          <Reveal>
-            <Link
-              to="/work"
-              data-cursor="GO"
-              className="mt-12 inline-flex items-center gap-3 border border-border px-8 py-4 font-cond text-sm uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
-            >
-              All projects <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* 04 — Interactive 3D lab */}
+      {/* 03 — Interactive 3D lab */}
       <section className="section-light border-t border-border section-pad">
         <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
