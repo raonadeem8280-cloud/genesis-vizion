@@ -1,16 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { Compass, Layers, Sparkles, Users } from "lucide-react";
 import { Reveal } from "./Reveal";
-import galleryCinematic from "@/assets/gallery-cinematic.jpg";
-import galleryEnv from "@/assets/gallery-env.jpg";
-import galleryIcon from "@/assets/gallery-icon.jpg";
-import galleryVehicle from "@/assets/gallery-vehicle.jpg";
+import projectNeon from "@/assets/project-neon-requiem.jpg";
+import uiHud from "@/assets/ui-hud.jpg";
+import charSoren from "@/assets/char-soren.png";
+import weapon from "@/assets/weapon.png";
 
 const tiles = [
-  { to: "/work", label: "Our Work", icon: Layers, image: galleryCinematic },
-  { to: "/services", label: "Services", icon: Sparkles, image: galleryIcon },
-  { to: "/about", label: "The Studio", icon: Users, image: galleryEnv },
-  { to: "/contact", label: "Start a Project", icon: Compass, image: galleryVehicle },
+  { to: "/work", label: "Our Work", icon: Layers, image: projectNeon },
+  { to: "/services", label: "Services", icon: Sparkles, image: uiHud },
+  { to: "/about", label: "The Studio", icon: Users, image: charSoren },
+  { to: "/contact", label: "Start a Project", icon: Compass, image: weapon },
 ] as const;
 
 /** Equal-width tile row — same mechanic as the games carousel above, one level up: whole sections of the site. */
@@ -27,7 +27,7 @@ export function ExploreStudio() {
           {tiles.map((t, i) => (
             <Reveal key={t.to} delay={i * 0.05}>
               <Link to={t.to} data-cursor="GO" className="group block">
-                <div className="card-elevated relative aspect-[4/5] overflow-hidden lg:aspect-[3/4]">
+                <div className="card-elevated relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-surface to-background lg:aspect-[3/4]">
                   <img
                     src={t.image}
                     alt=""

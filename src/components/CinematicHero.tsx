@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import { media } from "@/data/media";
+import { characters } from "@/data/characters";
 
 export function CinematicHero({ onPlay }: { onPlay: () => void }) {
   const reduced = useReducedMotion();

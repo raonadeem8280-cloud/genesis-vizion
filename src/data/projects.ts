@@ -43,7 +43,7 @@ export const projects: Project[] = [
     slug: "neon-requiem",
     number: "01",
     title: "Neon Requiem",
-    category: "Tactical Action / PC",
+    category: "Tactical Shooter / PC",
     tags: ["Games", "3D Art", "UI/UX", "Cinematics"],
     image: neon,
     character: kira,
@@ -67,6 +67,64 @@ export const projects: Project[] = [
       "The HUD holds ammo, shields, ability charge and squad state without covering the horizon line where every duel is decided.",
     marketingNote:
       "Announce key art, six social cutdowns and a store page built to convert cold traffic on a single scroll.",
+  },
+  {
+    slug: "echoes-mobile",
+    number: "02",
+    title: "Echoes: Symphony",
+    category: "Action RPG / Mobile",
+    tags: ["Games", "3D Art", "UI/UX", "Marketing"],
+    image: dustline,
+    character: axel,
+    environment: dustline,
+    ui: uiMainMenu,
+    marketing: galleryVehicle,
+    gallery: [dustline, galleryEnv, uiMainMenu, weapon, galleryVehicle, axel],
+    summary:
+      "A vibrant action RPG for mobile with real-time combat, character progression and cross-play multiplayer.",
+    overview:
+      "Echoes combines AAA console-quality graphics with mobile-optimized gameplay. We delivered full character design, UI systems for touch controls, and a store experience that converted at 3.2x industry average.",
+    platform: "iOS / Android",
+    genre: "Action RPG",
+    servicesProvided: ["Game Development", "3D Character Art", "Game UI/UX", "Marketing Creatives", "ASO"],
+    year: "2026",
+    characterNote:
+      "Axel Ryne showcases high-fidelity character rendering optimized for mobile. Dynamic lighting and cloth simulation at 60fps.",
+    environmentNote:
+      "Fantasy realm with destructible objects, particle effects, and volumetric lighting adapted for mobile performance.",
+    uiNote:
+      "Touch-optimized HUD with gesture controls for abilities, inventory management and social features.",
+    marketingNote:
+      "App Store screenshots, feature graphics and pre-launch campaign driving 500K+ downloads.",
+  },
+  {
+    slug: "void-frontier-vr",
+    number: "03",
+    title: "Void Frontier",
+    category: "VR Adventure / PC VR",
+    tags: ["Games", "3D Art", "UI/UX", "Cinematics"],
+    image: voidrunner,
+    character: soren,
+    environment: voidrunner,
+    ui: uiStore,
+    marketing: galleryCinematic,
+    gallery: [voidrunner, galleryEnv, uiStore, weapon, galleryCinematic, soren],
+    summary:
+      "An immersive VR experience combining exploration, puzzle-solving and combat in an alien frontier.",
+    overview:
+      "Built for Meta Quest Pro and SteamVR. Full spatial audio implementation, hand-tracking optimization, and cinematic moment design that defines modern VR storytelling.",
+    platform: "Meta Quest 3 / SteamVR / PlayStation VR2",
+    genre: "VR Adventure",
+    servicesProvided: ["Game Development", "3D Environment Art", "Game UI/UX", "Cinematics"],
+    year: "2026",
+    characterNote:
+      "Soren represents the VR frontier explorer archetype. Designed for first-person perspective with detailed hand animations.",
+    environmentNote:
+      "Alien planetary environments with interactive elements, environmental storytelling and zero-g sequences.",
+    uiNote:
+      "Spatial UI that exists in 3D space, hand-controlled menus and contextual object interaction prompts.",
+    marketingNote:
+      "Launch trailer showcasing VR immersion, store page with 360° imagery.",
   },
   {
     slug: "dustline",

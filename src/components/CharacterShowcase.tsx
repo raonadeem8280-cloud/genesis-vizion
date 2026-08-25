@@ -89,10 +89,10 @@ export function CharacterShowcase() {
                 loading="lazy"
                 width={1024}
                 height={1536}
-                initial={{ opacity: 0, x: 24 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -24 }}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, x: 24, rotateY: -20, rotateX: 5 }}
+                animate={{ opacity: 1, x: 0, rotateY: 0, rotateX: 0 }}
+                exit={{ opacity: 0, x: -24, rotateY: 20, rotateX: -5 }}
+                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                 className="img-vibrant relative z-20 max-h-[620px] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.75)]"
               />
             </AnimatePresence>

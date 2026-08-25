@@ -7,6 +7,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Reveal } from "@/components/Reveal";
 import { CharacterShowcase } from "@/components/CharacterShowcase";
 import { UIShowcase } from "@/components/UIShowcase";
+import { GameProjectsShowcase } from "@/components/GameProjectsShowcase";
 import { ServicesShowcase } from "@/components/ServicesShowcase";
 import { ArtGallery } from "@/components/ArtGallery";
 import { InteractiveModel } from "@/components/InteractiveModel";
@@ -44,6 +45,26 @@ function Index() {
   return (
     <>
       <CinematicHero onPlay={() => setReelOpen(true)} />
+
+      <CharacterShowcase />
+      <UIShowcase />
+
+      {/* Statement — Art Meets Technology */}
+      <section className="grain ambient-glow relative overflow-hidden border-t border-border section-pad">
+        <div className="container-page relative z-10">
+          <h2 className="display-xl relative z-0 text-[clamp(3.5rem,15vw,13rem)] text-foreground/90">
+            <span className="block">Art</span>
+            <span className="block text-primary">Meets</span>
+            <span className="block">Technology.</span>
+          </h2>
+          <img
+            src={media.interactiveModelPoster}
+            alt="Original sci-fi weapon render"
+            loading="lazy"
+            className="img-vibrant pointer-events-none absolute right-0 top-1/2 z-10 w-[70%] max-w-3xl -translate-y-1/2 rotate-[-8deg] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] md:right-[6%]"
+          />
+        </div>
+      </section>
 
       <ExploreStudio />
 
@@ -92,7 +113,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 03 — Interactive 3D lab */}
+      {/* 04 — Interactive 3D lab */}
       <section className="section-light border-t border-border section-pad">
         <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
@@ -115,8 +136,7 @@ function Index() {
         </div>
       </section>
 
-      <CharacterShowcase />
-      <UIShowcase />
+      <GameProjectsShowcase />
 
       {/* 07 — Showreel */}
       <section className="border-t border-border section-pad">
@@ -165,23 +185,6 @@ function Index() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* 11 — Statement */}
-      <section className="grain ambient-glow relative overflow-hidden border-t border-border section-pad">
-        <div className="container-page relative z-10">
-          <h2 className="display-xl relative z-0 text-[clamp(3.5rem,15vw,13rem)] text-foreground/90">
-            <span className="block">Art</span>
-            <span className="block text-primary">Meets</span>
-            <span className="block">Technology.</span>
-          </h2>
-          <img
-            src={media.interactiveModelPoster}
-            alt="Original sci-fi weapon render"
-            loading="lazy"
-            className="img-vibrant pointer-events-none absolute right-0 top-1/2 z-10 w-[70%] max-w-3xl -translate-y-1/2 rotate-[-8deg] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] md:right-[6%]"
-          />
         </div>
       </section>
 
