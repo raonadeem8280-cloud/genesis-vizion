@@ -16,8 +16,8 @@ const tiles = [
 /** Equal-width tile row — same mechanic as the games carousel above, one level up: whole sections of the site. */
 export function ExploreStudio() {
   return (
-    <section className="border-t border-border bg-[#0A0B0D] section-pad">
-      <div className="container-page">
+    <section className="ambient-glow border-t border-border bg-[#0A0B0D] section-pad">
+      <div className="container-page relative z-10">
         <Reveal>
           <p className="eyebrow text-primary">Find Your Way In</p>
           <h2 className="type-sub mt-4">Explore the studio.</h2>
@@ -33,9 +33,9 @@ export function ExploreStudio() {
                     alt=""
                     aria-hidden
                     loading="lazy"
-                    className="h-full w-full object-cover opacity-70 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+                    className="img-vibrant h-full w-full object-cover opacity-90 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
                   />
-                  <div className="absolute inset-0 bg-background/45 transition-colors duration-500 group-hover:bg-background/30" />
+                  <div className="absolute inset-0 bg-background/28 transition-colors duration-500 group-hover:bg-background/15" />
                   <span className="absolute left-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-background/70 backdrop-blur-sm">
                     <t.icon className="h-4 w-4 text-primary" />
                   </span>

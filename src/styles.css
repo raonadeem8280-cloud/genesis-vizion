@@ -164,6 +164,29 @@
   box-shadow: 0px 4px 4px 0px rgba(10, 10, 10, 0.15);
 }
 
+/** Punchier key art without touching the source files — boosts saturation/contrast/punch. */
+@utility img-vibrant {
+  filter: saturate(1.65) contrast(1.18) brightness(1.08);
+}
+
+/** Two-tone ambient color glow (warm primary + cool teal) behind a dark section — the
+ * "AAA game site" trick of lighting a near-black background with color instead of leaving
+ * it flat. Apply to a `relative overflow-hidden` section; give its content wrapper `relative z-10`. */
+@utility ambient-glow {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(45% 55% at 10% 15%, oklch(0.63 0.19 22 / 0.22), transparent 70%),
+      radial-gradient(40% 50% at 90% 80%, oklch(0.7 0.13 200 / 0.16), transparent 70%);
+  }
+}
+
 @utility pill-cta {
   display: inline-flex;
   align-items: center;

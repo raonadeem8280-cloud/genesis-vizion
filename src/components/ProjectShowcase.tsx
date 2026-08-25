@@ -21,9 +21,9 @@ export function ProjectBlock({ project, index }: { project: Project; index: numb
             loading={index === 0 ? "eager" : "lazy"}
             width={1600}
             height={900}
-            className="aspect-[16/10] w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] md:aspect-[16/8]"
+            className="img-vibrant aspect-[16/10] w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] md:aspect-[16/8]"
           />
-          <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+          <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-transparent" />
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">

@@ -196,8 +196,8 @@ function Index() {
       </section>
 
       {/* 11 — Statement */}
-      <section className="grain relative overflow-hidden border-t border-border section-pad">
-        <div className="container-page">
+      <section className="grain ambient-glow relative overflow-hidden border-t border-border section-pad">
+        <div className="container-page relative z-10">
           <h2 className="display-xl relative z-0 text-[clamp(3.5rem,15vw,13rem)] text-foreground/90">
             <span className="block">Art</span>
             <span className="block text-primary">Meets</span>
@@ -207,14 +207,14 @@ function Index() {
             src={media.interactiveModelPoster}
             alt="Original sci-fi weapon render"
             loading="lazy"
-            className="pointer-events-none absolute right-0 top-1/2 z-10 w-[70%] max-w-3xl -translate-y-1/2 rotate-[-8deg] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] md:right-[6%]"
+            className="img-vibrant pointer-events-none absolute right-0 top-1/2 z-10 w-[70%] max-w-3xl -translate-y-1/2 rotate-[-8deg] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] md:right-[6%]"
           />
         </div>
       </section>
 
       {/* 12 — Final CTA */}
-      <section className="border-t border-border bg-[#08090B] section-pad">
-        <div className="container-page">
+      <section className="ambient-glow border-t border-border bg-[#08090B] section-pad">
+        <div className="container-page relative z-10">
           <SectionTitle eyebrow="Next" lines={["Let's build", "the next", "world."]} />
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-md text-sm text-muted-foreground md:text-base">

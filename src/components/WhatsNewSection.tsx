@@ -33,9 +33,9 @@ export function WhatsNewSection() {
                     src={featured.image}
                     alt={featured.title}
                     loading="eager"
-                    className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+                    className="img-vibrant aspect-[16/10] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/65 via-transparent to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-6">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141212]">
                       <span className="h-2 w-2 rounded-full bg-primary" />
@@ -81,7 +81,7 @@ export function WhatsNewSection() {
                     src={item.image}
                     alt={item.title}
                     loading="lazy"
-                    className="h-20 w-28 shrink-0 rounded-lg object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+                    className="img-vibrant h-20 w-28 shrink-0 rounded-lg object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                   />
                 </a>
               </Reveal>

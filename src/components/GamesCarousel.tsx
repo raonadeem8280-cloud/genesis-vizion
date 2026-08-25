@@ -17,7 +17,12 @@ function platformIcons(platform: string) {
     .filter((s) => PLATFORM_ICON[s]);
 }
 
-/** Uniform, tightly-packed poster carousel — each card overlays its platform icons on the art itself. */
+// Alternating tilt per card — interlocking "fanned deck" silhouette, straightens on hover.
+// Spelled out as literal class strings (not built from a number at runtime) so Tailwind's
+// static source scanner can actually see and generate these arbitrary-value utilities.
+const TILT_CLASSES = ["rotate-[-4deg]", "rotate-[3deg]", "rotate-[-3deg]", "rotate-[4deg]"];
+
+/** Uniform, overlapping "cut deck" poster carousel — each card tilted, straightening and lifting on hover. */
 export function GamesCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -26,8 +31,8 @@ export function GamesCarousel() {
   };
 
   return (
-    <section className="border-t border-border bg-[#0A0B0D] section-pad">
-      <div className="container-page">
+    <section className="ambient-glow border-t border-border bg-[#0A0B0D] section-pad">
+      <div className="container-page relative z-10">
         <div className="flex flex-wrap items-baseline justify-between gap-6">
           <Reveal>
             <p className="eyebrow text-primary">Our Games</p>
@@ -57,41 +62,49 @@ export function GamesCarousel() {
 
         <div
           ref={trackRef}
-          className="mt-12 flex gap-3 overflow-x-auto pb-4 [scrollbar-width:none] snap-x snap-mandatory [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="mt-16 flex items-center overflow-x-auto px-2 py-8 [overflow-y:visible] [scrollbar-width:none] snap-x snap-mandatory [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {projects.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 0.05} className="shrink-0 snap-start basis-[62%] sm:basis-[34%] lg:basis-[22%]">
-              <Link to="/work/$slug" params={{ slug: p.slug }} data-cursor="VIEW" className="group block">
-                <div className="card-elevated relative aspect-[3/4] overflow-hidden">
-                  <img
-                    src={p.image}
-                    alt={`${p.title} key art`}
-                    loading={i === 0 ? "eager" : "lazy"}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 flex items-center gap-2 p-3">
-                    {platformIcons(p.platform).map((label) => {
-                      const Icon = PLATFORM_ICON[label];
-                      return (
-                        <span
-                          key={label}
-                          title={label}
-                          className="flex h-6 w-6 items-center justify-center rounded-full bg-background/70 backdrop-blur-sm"
-                        >
-                          <Icon className="h-3 w-3 text-muted-foreground" />
-                        </span>
-                      );
-                    })}
+            <Reveal
+              key={p.slug}
+              delay={i * 0.05}
+              className={`group relative shrink-0 snap-start basis-[62%] sm:basis-[34%] lg:basis-[22%] ${i > 0 ? "-ml-6 sm:-ml-10" : ""}`}
+            >
+              <div
+                className={`relative ${TILT_CLASSES[i % TILT_CLASSES.length]} transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:z-20 hover:rotate-0 hover:scale-[1.06]`}
+              >
+                <Link to="/work/$slug" params={{ slug: p.slug }} data-cursor="VIEW" className="block">
+                  <div className="card-elevated relative aspect-[3/4] overflow-hidden border border-border/60">
+                    <img
+                      src={p.image}
+                      alt={`${p.title} key art`}
+                      loading={i === 0 ? "eager" : "lazy"}
+                      className="img-vibrant h-full w-full object-cover"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 flex items-center gap-2 p-3">
+                      {platformIcons(p.platform).map((label) => {
+                        const Icon = PLATFORM_ICON[label];
+                        return (
+                          <span
+                            key={label}
+                            title={label}
+                            className="flex h-6 w-6 items-center justify-center rounded-full bg-background/70 backdrop-blur-sm"
+                          >
+                            <Icon className="h-3 w-3 text-muted-foreground" />
+                          </span>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-                <p className="mt-4 font-cond text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  {p.number} / {p.category}
-                </p>
-                <h3 className="mt-2 font-display text-xl uppercase leading-none transition-colors group-hover:text-primary md:text-2xl">
-                  {p.title}
-                </h3>
-              </Link>
+                  <p className="mt-4 font-cond text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    {p.number} / {p.category}
+                  </p>
+                  <h3 className="mt-2 font-display text-xl uppercase leading-none transition-colors group-hover:text-primary md:text-2xl">
+                    {p.title}
+                  </h3>
+                </Link>
+              </div>
             </Reveal>
           ))}
         </div>

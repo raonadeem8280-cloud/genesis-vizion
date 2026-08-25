@@ -35,7 +35,7 @@ export function CinematicHero({ onPlay }: { onPlay: () => void }) {
         width={1920}
         height={1080}
         fetchPriority="high"
-        className="absolute inset-0 z-0 h-full w-full scale-105 object-cover opacity-60"
+        className="img-vibrant absolute inset-0 z-0 h-full w-full scale-105 object-cover opacity-60"
         style={{ transform: `translate3d(${p.x * -12}px, ${p.y * -8}px, 0) scale(1.08)` }}
       />
 
@@ -91,7 +91,7 @@ export function CinematicHero({ onPlay }: { onPlay: () => void }) {
               height={960}
               animate={reduced ? {} : { y: [0, -10, 0] }}
               transition={reduced ? undefined : { duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-              className="h-[42vh] w-auto max-w-[80vw] object-contain opacity-90 drop-shadow-[0_30px_80px_rgba(0,0,0,0.85)] sm:h-[48vh] md:h-[58vh]"
+              className="img-vibrant h-[42vh] w-auto max-w-[80vw] object-contain opacity-90 drop-shadow-[0_30px_80px_rgba(0,0,0,0.85)] sm:h-[48vh] md:h-[58vh]"
               style={{ transform: `translate3d(${p.x * 14}px, ${p.y * 8}px, 0)` }}
             />
           </motion.button>
@@ -111,30 +111,42 @@ export function CinematicHero({ onPlay }: { onPlay: () => void }) {
         </motion.div>
       </div>
 
-      {/* Floating badge — anchored over the hero art, top-right, like the reference's overlay callout */}
+      {/* Release announcement card — same mechanic as the reference (mark, title, tagline, subtext, watch pill),
+          built from this project's own data instead of a real franchise logo/campaign copy. Hidden below lg:
+          the hero is already busy with the headline, character stage and video at that size. */}
       <motion.div
-        initial={reduced ? false : { opacity: 0, y: 20 }}
-        animate={{
-          opacity: 1,
-          y: reduced ? 0 : [0, -8, 0],
-        }}
+        initial={reduced ? false : { opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: reduced ? 0 : [0, -10, 0] }}
         transition={
           reduced
             ? { duration: 0.6 }
             : {
                 opacity: { duration: 0.6, delay: 0.3 },
-                y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.9 },
+                y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 },
               }
         }
-        className="card-elevated absolute right-6 top-[calc(88px+2.5rem)] z-30 inline-flex items-center gap-3 border border-border bg-background/60 px-4 py-2 backdrop-blur-sm sm:right-10 md:right-[8%] lg:right-[14%]"
+        className="absolute right-[8%] top-[calc(88px+2.5rem)] z-30 hidden w-[300px] rounded-[28px] border border-border bg-background/70 px-7 py-8 text-center backdrop-blur-md lg:block"
       >
-        <span className="relative flex h-1.5 w-1.5">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/15">
+          <span className="block h-5 w-5 rotate-45 border-2 border-primary" />
         </span>
-        <span className="whitespace-nowrap font-cond text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-          Latest Release — <span className="text-foreground">{latest.title}</span>
-        </span>
+        <p className="mt-5 font-cond text-[11px] uppercase tracking-[0.25em] text-primary">
+          {latest.category} — Now Live
+        </p>
+        <h3 className="mt-2 font-display text-2xl uppercase leading-none">{latest.title}</h3>
+        <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{latest.summary}</p>
+        <button
+          type="button"
+          onClick={onPlay}
+          data-cursor="PLAY"
+          className="pill-cta mx-auto mt-6 justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
+          style={{ WebkitTapHighlightColor: "transparent" }}
+        >
+          <span className="pill-cta-icon">
+            <Play className="h-4 w-4 fill-current" />
+          </span>
+          <span className="font-cond text-sm uppercase tracking-[0.2em]">Watch Trailer</span>
+        </button>
       </motion.div>
 
       <div className="container-page relative z-30">

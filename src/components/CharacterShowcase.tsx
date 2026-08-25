@@ -85,7 +85,7 @@ export function CharacterShowcase() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -24 }}
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="relative z-20 max-h-[620px] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.75)]"
+                className="img-vibrant relative z-20 max-h-[620px] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.75)]"
               />
             </AnimatePresence>
           </div>

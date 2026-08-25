@@ -25,7 +25,7 @@ export function ArtGallery() {
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+                  className="img-vibrant h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-background to-transparent p-4 font-cond text-xs uppercase tracking-[0.2em] opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   {img.category}
