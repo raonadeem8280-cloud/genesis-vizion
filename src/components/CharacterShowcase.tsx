@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { characters } from "@/data/characters";
 import { SectionTitle } from "./SectionTitle";
@@ -6,6 +6,14 @@ import { SectionTitle } from "./SectionTitle";
 export function CharacterShowcase() {
   const [index, setIndex] = useState(0);
   const active = characters[index]!;
+
+  // Auto-switch characters every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % characters.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="section-pad relative overflow-hidden border-t border-border">
