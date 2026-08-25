@@ -56,11 +56,11 @@ export function CinematicHero({ onPlay }: { onPlay: () => void }) {
         </div>
       )}
 
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(70%_70%_at_28%_50%,transparent,rgba(8,9,11,0.55)_100%)]" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(70%_70%_at_28%_50%,transparent,rgba(8,9,11,0.32)_100%)]" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
       {/* Dedicated legibility gradient behind the copy column only — keeps the headline readable now that the
           global vignette above is much lighter and the video shows through everywhere else. */}
-      <div className="absolute inset-y-0 left-0 z-0 w-full bg-gradient-to-r from-background/85 via-background/35 to-transparent md:w-[70%]" />
+      <div className="absolute inset-y-0 left-0 z-0 w-full bg-gradient-to-r from-background/70 via-background/22 to-transparent md:w-[70%]" />
 
       {/* Interactive character stage — shifted off the video's focal area, smaller, click to cycle cast members
           with a CSS 3D flip (perspective + rotateY). No WebGL model in this project yet, so this is the
@@ -81,8 +81,8 @@ export function CinematicHero({ onPlay }: { onPlay: () => void }) {
             exit={reduced ? { opacity: 0 } : { rotateY: -90, opacity: 0 }}
             whileTap={reduced ? undefined : { scale: 0.94 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformStyle: "preserve-3d" }}
-            className="block cursor-pointer border-none bg-transparent p-0"
+            style={{ transformStyle: "preserve-3d", WebkitTapHighlightColor: "transparent" }}
+            className="block cursor-pointer rounded-full border-none bg-transparent p-0 outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
           >
             <motion.img
               src={active.image}

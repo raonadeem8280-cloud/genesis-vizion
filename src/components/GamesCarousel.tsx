@@ -1,54 +1,25 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Gamepad2, Monitor, Smartphone } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { projects } from "@/data/projects";
 
-/**
- * Arc/"coverflow" emphasis: cards nearest the track's horizontal center sit at
- * full scale, cards further out taper down — mirrors the tapered-height card
- * arrangement in the studio's Figma reference, driven here by scroll position
- * instead of fixed per-card sizes so it works at any viewport width.
- */
+const PLATFORM_ICON: Record<string, typeof Monitor> = {
+  PC: Monitor,
+  Console: Gamepad2,
+  Mobile: Smartphone,
+};
+
+function platformIcons(platform: string) {
+  return platform
+    .split("+")
+    .map((s) => s.trim())
+    .filter((s) => PLATFORM_ICON[s]);
+}
+
+/** Uniform, tightly-packed poster carousel — each card overlays its platform icons on the art itself. */
 export function GamesCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [scales, setScales] = useState<number[]>(() => projects.map(() => 1));
-  const ticking = useRef(false);
-
-  const updateScales = useCallback(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const trackRect = track.getBoundingClientRect();
-    const center = trackRect.left + trackRect.width / 2;
-    const next = cardRefs.current.map((el) => {
-      if (!el) return 1;
-      const r = el.getBoundingClientRect();
-      const cardCenter = r.left + r.width / 2;
-      const dist = Math.min(Math.abs(cardCenter - center) / (trackRect.width / 2), 1);
-      return 1 - dist * 0.16;
-    });
-    setScales(next);
-  }, []);
-
-  useEffect(() => {
-    updateScales();
-    const track = trackRef.current;
-    const onScroll = () => {
-      if (ticking.current) return;
-      ticking.current = true;
-      requestAnimationFrame(() => {
-        updateScales();
-        ticking.current = false;
-      });
-    };
-    track?.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      track?.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [updateScales]);
 
   const scrollBy = (dir: 1 | -1) => {
     trackRef.current?.scrollBy({ left: dir * (trackRef.current.clientWidth * 0.85), behavior: "smooth" });
@@ -86,34 +57,41 @@ export function GamesCarousel() {
 
         <div
           ref={trackRef}
-          className="mt-12 flex items-end gap-6 overflow-x-auto pb-4 [scrollbar-width:none] snap-x snap-mandatory [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="mt-12 flex gap-3 overflow-x-auto pb-4 [scrollbar-width:none] snap-x snap-mandatory [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {projects.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 0.05} className="shrink-0 snap-start basis-[78%] sm:basis-[46%] lg:basis-[30%]">
-              <div
-                ref={(el) => {
-                  cardRefs.current[i] = el;
-                }}
-                style={{ transform: `scale(${scales[i] ?? 1})`, transformOrigin: "bottom center" }}
-                className="transition-transform duration-200 ease-out"
-              >
-                <Link to="/work/$slug" params={{ slug: p.slug }} data-cursor="VIEW" className="group block">
-                  <div className="card-elevated overflow-hidden">
-                    <img
-                      src={p.image}
-                      alt={`${p.title} key art`}
-                      loading={i === 0 ? "eager" : "lazy"}
-                      className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
-                    />
+            <Reveal key={p.slug} delay={i * 0.05} className="shrink-0 snap-start basis-[62%] sm:basis-[34%] lg:basis-[22%]">
+              <Link to="/work/$slug" params={{ slug: p.slug }} data-cursor="VIEW" className="group block">
+                <div className="card-elevated relative aspect-[3/4] overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={`${p.title} key art`}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 flex items-center gap-2 p-3">
+                    {platformIcons(p.platform).map((label) => {
+                      const Icon = PLATFORM_ICON[label];
+                      return (
+                        <span
+                          key={label}
+                          title={label}
+                          className="flex h-6 w-6 items-center justify-center rounded-full bg-background/70 backdrop-blur-sm"
+                        >
+                          <Icon className="h-3 w-3 text-muted-foreground" />
+                        </span>
+                      );
+                    })}
                   </div>
-                  <p className="mt-4 font-cond text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    {p.number} / {p.category}
-                  </p>
-                  <h3 className="mt-2 font-display text-2xl uppercase leading-none transition-colors group-hover:text-primary">
-                    {p.title}
-                  </h3>
-                </Link>
-              </div>
+                </div>
+                <p className="mt-4 font-cond text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  {p.number} / {p.category}
+                </p>
+                <h3 className="mt-2 font-display text-xl uppercase leading-none transition-colors group-hover:text-primary md:text-2xl">
+                  {p.title}
+                </h3>
+              </Link>
             </Reveal>
           ))}
         </div>

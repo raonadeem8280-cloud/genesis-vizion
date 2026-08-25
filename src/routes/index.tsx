@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { CinematicHero } from "@/components/CinematicHero";
 import { GamesCarousel } from "@/components/GamesCarousel";
+import { ExploreStudio } from "@/components/ExploreStudio";
 import { WhatsNewSection } from "@/components/WhatsNewSection";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Reveal } from "@/components/Reveal";
@@ -49,6 +50,7 @@ function Index() {
       <CinematicHero onPlay={() => setReelOpen(true)} />
 
       <GamesCarousel />
+      <ExploreStudio />
       <WhatsNewSection />
 
       {/* 02 — Studio introduction */}
