@@ -166,7 +166,17 @@ function Index() {
         <div className="container-page">
           <SectionTitle eyebrow="Process" lines={["How we", "build."]} />
           <div className="relative mt-16">
-            <div className="absolute left-0 right-0 top-6 hidden h-px bg-border md:block" />
+            {/* Animated connecting line */}
+            <div className="absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-border via-primary to-border overflow-hidden md:block">
+              <div
+                className="h-full w-full bg-gradient-to-r from-border via-primary to-border"
+                style={{
+                  animation: "shimmer 3s infinite",
+                  backgroundSize: "200% 100%",
+                  backgroundPosition: "200% 0",
+                }}
+              />
+            </div>
             <div className="grid gap-10 md:grid-cols-4">
               {stages.map((s, i) => (
                 <Reveal key={s.n} delay={i * 0.08}>
