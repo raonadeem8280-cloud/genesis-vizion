@@ -6,6 +6,7 @@ import { ExploreStudio } from "@/components/ExploreStudio";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Reveal } from "@/components/Reveal";
 import { CharacterShowcase } from "@/components/CharacterShowcase";
+import { GamesCollection3D } from "@/components/GamesCollection3D";
 import { UIShowcase } from "@/components/UIShowcase";
 import { GameProjectsShowcase } from "@/components/GameProjectsShowcase";
 import { ServicesShowcase } from "@/components/ServicesShowcase";
@@ -47,6 +48,7 @@ function Index() {
       <CinematicHero onPlay={() => setReelOpen(true)} />
 
       <CharacterShowcase />
+      <GamesCollection3D />
       <UIShowcase />
 
       {/* Statement — Art Meets Technology */}
